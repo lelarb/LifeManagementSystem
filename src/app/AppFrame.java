@@ -2,6 +2,7 @@ package app;
 
 import auth.LoginPanel;
 import auth.RegisterPanel;
+import financeapp.FinanceTrackerForm;
 
 import javax.swing.*;
 import java.awt.*;
@@ -10,7 +11,7 @@ public class AppFrame extends JFrame{
     public static final String LOGIN = "login";
     public static final String REGISTER = "register";
     public static final String MENU = "menu";
-    public static final String FINANCE = "finansije";
+    public static final String FINANCE = "finance";
 
     private final CardLayout layout = new CardLayout();
     private final JPanel root = new JPanel(layout);
@@ -21,10 +22,12 @@ public class AppFrame extends JFrame{
         LoginPanel login = new LoginPanel(this);
         RegisterPanel register = new RegisterPanel(this);
         MainMenuPanel menu = new MainMenuPanel(this);
+        FinanceTrackerForm finance = new FinanceTrackerForm(this);
 
         root.add(login.getMainPanel(), LOGIN);
         root.add(register.getMainPanel(), REGISTER);
         root.add(menu.getMainPanel(), MENU);
+        root.add(finance.getMainPanel(), FINANCE);
 
         setContentPane(root);
         setSize(700, 500);
