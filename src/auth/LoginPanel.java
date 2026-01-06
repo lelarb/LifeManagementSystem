@@ -25,7 +25,7 @@ public class LoginPanel {
             }
 
             if (userService.login(u, p)) {
-                frame.showScreen(AppFrame.MENU);
+                frame.showScreen(AppFrame.HOME);
             } else {
                 JOptionPane.showMessageDialog(mainPanel, "Pogrešan username ili password.");
             }

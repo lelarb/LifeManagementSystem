@@ -12,6 +12,7 @@ public class AppFrame extends JFrame{
     public static final String REGISTER = "register";
     public static final String MENU = "menu";
     public static final String FINANCE = "finance";
+    public static final String HOME = "home";
 
     private final CardLayout layout = new CardLayout();
     private final JPanel root = new JPanel(layout);
@@ -21,11 +22,14 @@ public class AppFrame extends JFrame{
 
         LoginPanel login = new LoginPanel(this);
         RegisterPanel register = new RegisterPanel(this);
+        HomePanel home = new HomePanel(this);
         MainMenuPanel menu = new MainMenuPanel(this);
         FinanceTrackerForm finance = new FinanceTrackerForm(this);
 
+
         root.add(login.getMainPanel(), LOGIN);
         root.add(register.getMainPanel(), REGISTER);
+        root.add(home.getMainPanel(), HOME);
         root.add(menu.getMainPanel(), MENU);
         root.add(finance.getMainPanel(), FINANCE);
 

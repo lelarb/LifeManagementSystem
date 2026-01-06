@@ -51,7 +51,7 @@ public class FinanceTrackerForm {
         updateSummary();
         updateCategoryComboBox();
         comboBox1.addActionListener( e -> updateCategoryComboBox());
-        backButton.addActionListener(e -> this.frame.showScreen(app.AppFrame.MENU));
+        backButton.addActionListener(e -> this.frame.showScreen(AppFrame.HOME));
 
 
         transactonTable.getSelectionModel().addListSelectionListener(e -> {
