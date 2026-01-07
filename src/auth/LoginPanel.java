@@ -1,6 +1,7 @@
 package auth;
 
 import app.AppFrame;
+import org.bson.Document;
 
 import javax.swing.*;
 
@@ -25,6 +26,10 @@ public class LoginPanel {
             }
 
             if (userService.login(u, p)) {
+                frame.setCurrentUsername(u);
+                Document user = userService.getUserByUsername(u);
+                String theme = (user != null) ? user.getString("theme") : "Default";
+                frame.applyTheme(theme);
                 frame.showScreen(AppFrame.HOME);
             } else {
                 JOptionPane.showMessageDialog(mainPanel, "Pogrešan username ili password.");
