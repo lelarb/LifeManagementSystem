@@ -3,6 +3,7 @@ package app;
 import auth.LoginPanel;
 import auth.RegisterPanel;
 import financeapp.FinanceTrackerForm;
+import trackers.water.WaterPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -14,12 +15,14 @@ public class AppFrame extends JFrame {
     public static final String FINANCE = "finance";
     public static final String HOME = "home";
     public static final String PROFILE = "profile";
+    public static final String WATER = "water";
 
     private final CardLayout layout = new CardLayout();
     private final JPanel root = new JPanel(layout);
     private String currentUsername;
     private ProfilePanel profilePanel;
     private String currentTheme = "Default";
+    private WaterPanel waterPanel;
 
 
     public AppFrame() {
@@ -31,7 +34,7 @@ public class AppFrame extends JFrame {
         MainMenuPanel menu = new MainMenuPanel(this);
         FinanceTrackerForm finance = new FinanceTrackerForm(this);
         profilePanel = new ProfilePanel(this);
-
+        WaterPanel waterPanel = new WaterPanel(this);
 
         root.add(login.getMainPanel(), LOGIN);
         root.add(register.getMainPanel(), REGISTER);
@@ -39,6 +42,8 @@ public class AppFrame extends JFrame {
         root.add(menu.getMainPanel(), MENU);
         root.add(finance.getMainPanel(), FINANCE);
         root.add(profilePanel.getMainPanel(), PROFILE);
+        root.add(waterPanel.getMainPanel(), WATER);
+
 
         setContentPane(root);
         setSize(700, 500);
@@ -149,6 +154,14 @@ public class AppFrame extends JFrame {
         }
     }
 
+    public void showWater() {
+        if (waterPanel == null) {
+            waterPanel = new WaterPanel(this);
+            root.add(waterPanel.getMainPanel(), WATER);
+        }
+        waterPanel.refresh();
+        showScreen(WATER);
+    }
 
 }
 

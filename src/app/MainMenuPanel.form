@@ -39,14 +39,14 @@
               <text value="San"/>
             </properties>
           </component>
-          <component id="8e4b1" class="javax.swing.JButton">
+          <component id="8e4b1" class="javax.swing.JButton" binding="waterButton">
             <constraints>
               <grid row="1" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>
             <properties>
               <background color="-1118249"/>
               <font size="22" style="1"/>
-              <text value="Ishrana"/>
+              <text value="Voda"/>
             </properties>
           </component>
           <component id="e6fe8" class="javax.swing.JButton">

@@ -6,10 +6,13 @@ public class MainMenuPanel {
     private JPanel mainPanel;
     private JButton financeButton;
     private JButton backButton;
+    private JButton waterButton;
 
     public MainMenuPanel(AppFrame frame) {
         financeButton.addActionListener(e -> frame.showScreen(AppFrame.FINANCE));
         backButton.addActionListener(e -> frame.showScreen(AppFrame.HOME));
+        waterButton.addActionListener(e -> frame.showWater());
+
 
     }
 
