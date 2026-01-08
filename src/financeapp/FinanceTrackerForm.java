@@ -46,7 +46,7 @@ public class FinanceTrackerForm {
     public FinanceTrackerForm(app.AppFrame frame){
         this.frame = frame;
 
-        manager = new TransactionManager();
+        manager = new TransactionManager(frame.getCurrentUsername());
         loadDataIntoTable();
         updateSummary();
         updateCategoryComboBox();
@@ -83,7 +83,8 @@ public class FinanceTrackerForm {
                     JOptionPane.showMessageDialog(null, "Molimo odaberite kategoriju!");
                     return;
                 }
-                Transaction t = new Transaction(type, amount, description, category);
+
+                Transaction t = new Transaction(frame.getCurrentUsername(), type, amount, description, category);
                 manager.addTransaction((t));
                 loadDataIntoTable();
                 updateSummary();
@@ -123,6 +124,7 @@ public class FinanceTrackerForm {
 
                 Transaction updated = new Transaction(
                         original.getId(),
+                        frame.getCurrentUsername(),
                         type,
                         amount,
                         description,
@@ -269,5 +271,13 @@ public class FinanceTrackerForm {
                     "Greška pri upisu u datoteku: " + ex.getMessage());
         }
     }
+
+    public void refresh() {
+        String username = frame.getCurrentUsername();
+        manager = new TransactionManager(username);
+        loadDataIntoTable();
+        updateSummary();
+    }
+
 
 }

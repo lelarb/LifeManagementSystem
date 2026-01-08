@@ -12,7 +12,7 @@ public class HomePanel {
 
         viewProfileButton.addActionListener(e -> frame.showProfile());
 
-        financeButton.addActionListener(e -> frame.showScreen(AppFrame.FINANCE));
+        financeButton.addActionListener(e -> frame.showFinance());
 
         myTrackersButton.addActionListener(e -> frame.showScreen(AppFrame.MENU));
     }

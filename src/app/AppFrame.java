@@ -4,6 +4,7 @@ import auth.LoginPanel;
 import auth.RegisterPanel;
 import financeapp.FinanceTrackerForm;
 import trackers.water.WaterPanel;
+import trackers.sleep.SleepPanel;
 
 import javax.swing.*;
 import java.awt.*;
@@ -16,13 +17,17 @@ public class AppFrame extends JFrame {
     public static final String HOME = "home";
     public static final String PROFILE = "profile";
     public static final String WATER = "water";
+    public static final String SLEEP = "sleep";
 
     private final CardLayout layout = new CardLayout();
     private final JPanel root = new JPanel(layout);
     private String currentUsername;
     private ProfilePanel profilePanel;
+    private FinanceTrackerForm financePanel;
     private String currentTheme = "Default";
     private WaterPanel waterPanel;
+    private SleepPanel sleepPanel;
+
 
 
     public AppFrame() {
@@ -32,17 +37,19 @@ public class AppFrame extends JFrame {
         RegisterPanel register = new RegisterPanel(this);
         HomePanel home = new HomePanel(this);
         MainMenuPanel menu = new MainMenuPanel(this);
-        FinanceTrackerForm finance = new FinanceTrackerForm(this);
+        financePanel = new FinanceTrackerForm(this);
         profilePanel = new ProfilePanel(this);
         WaterPanel waterPanel = new WaterPanel(this);
+        sleepPanel = new SleepPanel(this);
 
         root.add(login.getMainPanel(), LOGIN);
         root.add(register.getMainPanel(), REGISTER);
         root.add(home.getMainPanel(), HOME);
         root.add(menu.getMainPanel(), MENU);
-        root.add(finance.getMainPanel(), FINANCE);
+        root.add(financePanel.getMainPanel(), FINANCE);
         root.add(profilePanel.getMainPanel(), PROFILE);
         root.add(waterPanel.getMainPanel(), WATER);
+        root.add(sleepPanel.getMainPanel(), SLEEP);
 
 
         setContentPane(root);
@@ -161,6 +168,16 @@ public class AppFrame extends JFrame {
         }
         waterPanel.refresh();
         showScreen(WATER);
+    }
+
+    public void showSleep() {
+        sleepPanel.refresh();
+        showScreen(SLEEP);
+    }
+
+    public void showFinance(){
+        financePanel.refresh();
+        showScreen(FINANCE);
     }
 
 }
