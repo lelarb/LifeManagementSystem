@@ -1,0 +1,10 @@
+Ukupni prihod: 0.0
+Ukupni rashod: 0.0
+Stanje: 0.0
+
+Rashodi po kategorijama:
+Hrana: 0.0
+Racuni: 0.0
+Zabava: 0.0
+Prijevoz: 0.0
+Ostalo: 0.0
