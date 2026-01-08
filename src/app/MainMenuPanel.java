@@ -8,12 +8,14 @@ public class MainMenuPanel {
     private JButton backButton;
     private JButton waterButton;
     private JButton sleepButton;
+    private JButton habitsButton;
 
     public MainMenuPanel(AppFrame frame) {
         financeButton.addActionListener(e -> frame.showScreen(AppFrame.FINANCE));
         backButton.addActionListener(e -> frame.showScreen(AppFrame.HOME));
         waterButton.addActionListener(e -> frame.showWater());
         sleepButton.addActionListener(e -> frame.showSleep());
+        habitsButton.addActionListener( e-> frame.showHabits());
     }
 
     public JPanel getMainPanel() {

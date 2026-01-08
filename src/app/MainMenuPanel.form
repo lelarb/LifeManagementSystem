@@ -49,7 +49,7 @@
               <text value="Water Tracker"/>
             </properties>
           </component>
-          <component id="e6fe8" class="javax.swing.JButton">
+          <component id="e6fe8" class="javax.swing.JButton" binding="habitsButton">
             <constraints>
               <grid row="4" column="4" row-span="1" col-span="1" vsize-policy="0" hsize-policy="3" anchor="0" fill="3" indent="0" use-parent-layout="false"/>
             </constraints>

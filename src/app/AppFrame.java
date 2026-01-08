@@ -18,6 +18,7 @@ public class AppFrame extends JFrame {
     public static final String PROFILE = "profile";
     public static final String WATER = "water";
     public static final String SLEEP = "sleep";
+    public static final String HABITS = "habits";
 
     private final CardLayout layout = new CardLayout();
     private final JPanel root = new JPanel(layout);
@@ -27,6 +28,7 @@ public class AppFrame extends JFrame {
     private String currentTheme = "Default";
     private WaterPanel waterPanel;
     private SleepPanel sleepPanel;
+    private trackers.habits.HabitsPanel habitPanel;
 
 
 
@@ -41,6 +43,7 @@ public class AppFrame extends JFrame {
         profilePanel = new ProfilePanel(this);
         WaterPanel waterPanel = new WaterPanel(this);
         sleepPanel = new SleepPanel(this);
+        habitPanel = new trackers.habits.HabitsPanel(this);
 
         root.add(login.getMainPanel(), LOGIN);
         root.add(register.getMainPanel(), REGISTER);
@@ -50,7 +53,7 @@ public class AppFrame extends JFrame {
         root.add(profilePanel.getMainPanel(), PROFILE);
         root.add(waterPanel.getMainPanel(), WATER);
         root.add(sleepPanel.getMainPanel(), SLEEP);
-
+        root.add(habitPanel.getMainPanel(), HABITS);
 
         setContentPane(root);
         setSize(700, 500);
@@ -178,6 +181,11 @@ public class AppFrame extends JFrame {
     public void showFinance(){
         financePanel.refresh();
         showScreen(FINANCE);
+    }
+
+    public void showHabits() {
+        habitPanel.refresh();
+        showScreen(HABITS);
     }
 
 }
